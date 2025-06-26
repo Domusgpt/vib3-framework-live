@@ -1,7 +1,7 @@
 // digital-magazine/js/content-loader.js
 import { navigateWithTransition } from './article-transitions.js';
 
-const CONTENT_BASE_PATH = '../content/'; // Relative to this JS file's location in digital-magazine/js/
+const CONTENT_BASE_PATH = './content/'; // Relative to site root for GitHub Pages
 
 /**
  * Fetches and populates site metadata like site title, tagline,

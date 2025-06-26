@@ -4,7 +4,7 @@ import { fadeInPage } from './article-transitions.js';
 import { setAllArticles, setupCategoryFilters, displayArticles, setupSortControls } from './content-filter.js';
 
 // Define CONTENT_BASE_PATH for fetching all articles, consistent with content-loader.js
-const CONTENT_BASE_PATH = '../content/';
+const CONTENT_BASE_PATH = './content/';
 
 async function fetchAllArticleData() {
     try {
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     window.Vib3codeApp = { vib3System, allArticles: [] }; // Initialize allArticles
 
     try {
-        await vib3System.init('../presets.json');
+        await vib3System.init('./presets.json');
         console.log("Vib3code VIB3StyleSystem initialized successfully.");
 
         const siteMetaData = await loadSiteMeta(); // Assuming loadSiteMeta might return categories for filter setup
@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const pagePath = window.location.pathname.split("/").pop();
 
         if (pagePath === 'index.html' || pagePath === '') { // Homepage
-            await loadFeaturedArticle('ema-report-monolith');
+            await loadFeaturedArticle('ema-report-monolith-eversuite-analysis');
             
             // Track currently filtered articles
             let currentFilteredArticles = allArticles;
