@@ -136,7 +136,9 @@ export class VIB34D {
             
             float grid(vec2 st, float scale) {
                 st *= scale;
-                vec2 grid = abs(fract(st - 0.5) - 0.5) / fwidth(st);
+                vec2 grid = abs(fract(st - 0.5) - 0.5);
+                float lineWidth = 0.02; // Fixed line width instead of fwidth
+                grid = smoothstep(0.0, lineWidth, grid);
                 return 1.0 - min(grid.x, grid.y);
             }
             
@@ -155,7 +157,7 @@ export class VIB34D {
                 float g = grid(warpedSt, u_gridScale);
                 
                 // Add glow effect
-                float glow = pow(g, 1.0 / u_glowIntensity);
+                float glow = pow(max(g, 0.1), 1.0 / max(u_glowIntensity, 0.1));
                 
                 // Fade out at the top
                 float fade = 1.0 - st.y;

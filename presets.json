@@ -61,6 +61,26 @@
                 "glowIntensity": 1.5,
                 "timeScale": 0.1
             }
+        },
+        "article-background-placeholder": {
+            "type": "background",
+            "parameters": {
+                "shader": "holoBackground",
+                "color": [0.01, 0.02, 0.04, 1.0],
+                "noiseAmount": 0.05,
+                "intensity": 0.2,
+                "timeScale": 0.08
+            }
+        },
+        "article-header-visual": {
+            "type": "ui-element",
+            "parameters": {
+                "shader": "glassPanelEffect",
+                "noiseScale": 30.0,
+                "noiseSpeed": 0.05,
+                "noiseIntensity": 0.02,
+                "timeScale": 0.1
+            }
         }
     },
     "interactionPresets": {
@@ -85,6 +105,19 @@
                 "easing": "ease-in-out",
                 "properties": {
                     "intensity": 0.4
+                }
+            },
+            "revert": "mouseout"
+        },
+        "featured-article-focus": {
+            "trigger": "mouseover",
+            "target": "self", 
+            "animation": {
+                "duration": 400,
+                "easing": "ease-out",
+                "properties": {
+                    "noiseIntensity": 0.1,
+                    "noiseSpeed": 0.25
                 }
             },
             "revert": "mouseout"
