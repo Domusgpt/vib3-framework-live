@@ -9,7 +9,7 @@ const CONTENT_BASE_PATH = './content/'; // Relative to site root for GitHub Page
  */
 export async function loadSiteMeta() {
     try {
-        const response = await fetch(`${CONTENT_BASE_PATH}site-meta.json`);
+        const response = await fetch(`${CONTENT_BASE_PATH}site-meta.json?v=${Date.now()}`);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }

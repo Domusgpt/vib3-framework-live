@@ -9,7 +9,7 @@ const CONTENT_BASE_PATH = './content/';
 async function fetchAllArticleData() {
     try {
         // First fetch the article index
-        const indexResponse = await fetch(`${CONTENT_BASE_PATH}article-index.json`);
+        const indexResponse = await fetch(`${CONTENT_BASE_PATH}article-index.json?v=${Date.now()}`);
         if (!indexResponse.ok) {
             console.error('Could not fetch article index');
             return [];
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     window.Vib3codeApp = { vib3System, allArticles: [] }; // Initialize allArticles
 
     try {
-        await vib3System.init('./presets.json');
+        await vib3System.init('./presets.json?v=' + Date.now());
         console.log("Vib3code VIB3StyleSystem initialized successfully.");
 
         const siteMetaData = await loadSiteMeta(); // Assuming loadSiteMeta might return categories for filter setup
